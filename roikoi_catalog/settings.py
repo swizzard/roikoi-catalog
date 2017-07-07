@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -82,7 +81,7 @@ WSGI_APPLICATION = 'roikoi_catalog.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'dev': {
+    'local': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'roikoi',
         'USER': 'roikoi',
@@ -90,9 +89,15 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '5432',
     },
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'roikoi',
+        'USER': 'roikoi',
+        'PASSWORD': 'roikoitest',
+        'HOST': 'roikoi-test.cuol9bq6qf4m.us-east-1.rds.amazonaws.com:5432',
+        'PORT': '5432'
+    }
 }
-DATABASES['default'].update(dj_databse_url.config(conn_max_age=500))
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
