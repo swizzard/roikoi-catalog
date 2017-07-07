@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <h1>Categories</h1>
+</div>
+<div class="row">
+  <div class="col-xl-12">
+    <ul>
+      {% for category in top_level_categories %}
+        {% include "child_category.html" %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

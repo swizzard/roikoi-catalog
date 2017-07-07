@@ -1,0 +1,9 @@
+<li><a href="{% url 'category' category.name %}">{{ category.name }}</a>
+  <ul>
+    {% for child in category.children %}
+      {% with category=child %}
+        {% include "child_category.html" %}
+      {% endwith %}
+    {% endfor %}
+  </ul>
+</li>

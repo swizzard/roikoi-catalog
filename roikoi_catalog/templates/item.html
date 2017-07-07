@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+{% with crumbs=item.category.ancestors %}
+  {% include "category-breadcrumbs.html" %}
+{% endwith %}
+<div class="row">
+  <h1>{{ item.title }}</h1>
+</div>
+{% endblock %}

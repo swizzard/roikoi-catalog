@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+{% with crumbs=category.ancestors %}
+  {% include "category-breadcrumbs.html" %}
+{% endwith %}
+<div class="row">
+  <div class="col-xl-12">
+    <h1>{{ category.name }}</h1>
+  </div>
+</div>
+{% for item in items %}
+  <div class="row">
+    <div class="col-xl-12">
+      <a href="{% url "item" item.title %}">{{ item.title }}</a>
+    </div>
+  </div>
+{% endfor %}
+{% endblock %}
